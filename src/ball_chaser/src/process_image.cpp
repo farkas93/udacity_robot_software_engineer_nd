@@ -38,19 +38,25 @@ void process_image_callback(const sensor_msgs::Image img)
     // Request a stop when there's no white ball seen by the camera
     uint32_t w = img.width;
     uint32_t h = img.height;
-    uint32_t step = img.step;
+    uint32_t channels = img.step / w;
+    
     uint32_t left = w/3;
     uint32_t straight = 2*left;
     int r_count = 0, s_count = 0, l_count = 0; 
-    for(uint32_t i = 0; i < step*h; i+= 6)
+
+    for(uint32_t i = 0; i+(channels-1) < channels*w*h; i+= channels)
     {
-        bool is_white = img.data[i] == white_pixel && (int)img.data[i+1] == white_pixel && (int)img.data[i+2] == white_pixel;
+        bool is_white = true;
+        for(int c = 0; c < channels; ++c){
+            // check all channels if they are white
+            is_white = is_white && (white_pixel == img.data[i+c]);
+        } 
         if(is_white){
-            uint32_t col = i % step;
+            uint32_t col = (i % img.step)/3;
             if (col < left) ++l_count;
             else if (col < straight) ++s_count;
             else ++r_count;
-            break;
+            //ROS_INFO("i %d, step, img.step %d, col : %d, left %d, straight %d", i, img.step, col, left, straight);
         }
     }
     drive_robot(r_count, s_count, l_count);
@@ -63,7 +69,7 @@ void process_image_callback(const sensor_msgs::Image img)
  */
 void init_control_messages(){
 
-    go_straight.request.linear_x = 0.5;
+    go_straight.request.linear_x = 0.3;
     go_straight.request.angular_z = 0.0;
 
     turn_right.request.linear_x = 0.1;
