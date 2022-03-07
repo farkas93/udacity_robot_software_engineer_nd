@@ -14,19 +14,19 @@ In following GIF you can see how we kidnap the robot and it has to relocate itse
 ![Demo GIF](.videos_and_images/where_am_i_demo.gif)
 
 In following screenshots I will explain what is happening in this GIF:
-[Kidnapping the Robot](.videos_and_images/screenshot0.PNG)
+![Kidnapping the Robot](.videos_and_images/screenshot0.PNG)
 The robot is just being kidnapped from one room to another which leads to confusion for the robot and the need for re-localization.
 
-[Uncertainty](.videos_and_images/screenshot1.PNG)
+![Uncertainty](.videos_and_images/screenshot1.PNG)
 The AMCL package immediately increases the uncertainty about the robots whereabouts which are well seen by the nicely distributed particle (red arrows) in the room.
 
-[Decresing Uncertainty](.videos_and_images/screenshot2.PNG)
+![Decresing Uncertainty](.videos_and_images/screenshot2.PNG)
 The robot starts to turn and the particle resampling begins. The image shows very well how the particles start to converges towards eachother.
 
-[Rising certainty](.videos_and_images/screenshot3.PNG)
+![Rising certainty](.videos_and_images/screenshot3.PNG)
 The robot starts to become more certain about its position and the AMCL algorithm rotates and aligns the map successfully with the robots sensor data.
 
-[Matching map](.videos_and_images/screenshot4.PNG)
+![Matching map](.videos_and_images/screenshot4.PNG)
 After the robot managed to do its turning maneuver, we start moving out of the room and one can clearly see how the sensor data still matches the walls ahead of the robot.
 
 ## Differences to the project requirements
