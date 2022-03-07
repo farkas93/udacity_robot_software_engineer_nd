@@ -9,7 +9,9 @@ Small change for test push
 The goal of this is the localization of a mobile robot using the ROS AMCL package.
 The generated PGM Map should align in RVIZ with the robot and what it detects with its sensors.
 
-
+## Demo Video
+In following video you can see how we kidnap the robot and it has to relocate itself on the map:
+./.videos/where_am_i_demo.mp4
 
 ## Prerequisites
 
