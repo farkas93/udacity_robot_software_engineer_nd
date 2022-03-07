@@ -11,7 +11,7 @@ The generated PGM Map should align in RVIZ with the robot and what it detects wi
 
 ## Demo Video
 In following video you can see how we kidnap the robot and it has to relocate itself on the map:
-./.videos/where_am_i_demo.mp4
+https://github.com/farkas93/udacity_robot_software_engineer_nd/.videos/where_am_i_demo.mp4
 
 ## Prerequisites
 
