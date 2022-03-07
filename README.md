@@ -9,9 +9,13 @@ Small change for test push
 The goal of this is the localization of a mobile robot using the ROS AMCL package.
 The generated PGM Map should align in RVIZ with the robot and what it detects with its sensors.
 
-## Demo Video
-In following video you can see how we kidnap the robot and it has to relocate itself on the map:
-![Demo Video](.videos/where_am_i_demo.gif)
+## Demo 
+In following GIF you can see how we kidnap the robot and it has to relocate itself on the map:
+![Demo GIF](.videos/where_am_i_demo.gif)
+
+## Differences to the project requirements
+
+Please note, that since in world.launch the robot is specified to be instantiated at point (2.0, -1.5), I also specified in the amcl.launch file the initial pose to be (2.0, -1.5). This change has to be made, since my worlds origin, (0.0, 0.0), is within the walls.
 
 ## Prerequisites
 
@@ -67,5 +71,5 @@ $ source devel/setup.bash
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-
+7. Navigate the robot around and let it locate itself.
 
