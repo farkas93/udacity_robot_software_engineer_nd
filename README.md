@@ -4,30 +4,11 @@ Nanodegree for robot software engineer on Udacity
 Please note that the current project to submit is always located in the root folder. It should be straight forward to use the repo root as catkin workspace. Previous project material should be found as hidden folder with the scheme ".prjectX/", with X indicating the project number. 
 Small change for test push
 
-# Project 3: Where Am I
+# Project 4: Map My World
 
-The goal of this is the localization of a mobile robot using the ROS AMCL package.
-The generated PGM Map should align in RVIZ with the robot and what it detects with its sensors.
+The goal of this is creating a map with the RTAB-SLAM algorithm.
 
 ## Demo 
-In following GIF you can see how we kidnap the robot and it has to relocate itself on the map:
-![Demo GIF](.videos_and_images/where_am_i_demo.gif)
-
-In following screenshots I will explain what is happening in this GIF:
-![Kidnapping the Robot](.videos_and_images/screenshot0.PNG)
-The robot is just being kidnapped from one room to another which leads to confusion for the robot and the need for re-localization.
-
-![Uncertainty](.videos_and_images/screenshot1.PNG)
-The AMCL package immediately increases the uncertainty about the robots whereabouts which are well seen by the nicely distributed particle (red arrows) in the room.
-
-![Decresing Uncertainty](.videos_and_images/screenshot2.PNG)
-The robot starts to turn and the particle resampling begins. The image shows very well how the particles start to converges towards eachother.
-
-![Rising certainty](.videos_and_images/screenshot3.PNG)
-The robot starts to become more certain about its position and the AMCL algorithm rotates and aligns the map successfully with the robots sensor data.
-
-![Matching map](.videos_and_images/screenshot4.PNG)
-After the robot managed to do its turning maneuver, we start moving out of the room and one can clearly see how the sensor data still matches the walls ahead of the robot.
 
 ## Differences to the project requirements
 
@@ -74,11 +55,11 @@ $ source devel/setup.bash
 $ roslaunch my_robot world.launch
 ```
 
-5. Open another terminal, and execute the package with the `amcl.launch` file. Here,
-the map_server, amcl, and move_back packages will be launched.
+5. Open another terminal, and execute the package with the `mapping.launch` file. Here,
+the RTAB-mapping algorithm will be launched.
 ```
 $ source devel/setup.bash
-$ roslaunch my_robot amcl.launch
+$ roslaunch my_robot mapping.launch
 ```
 
 6. Open another terminal, and run the `teleop` node.
