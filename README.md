@@ -10,24 +10,23 @@ The goal of this is creating a map with the RTAB-SLAM algorithm.
 
 ## Demo 
 
-## Differences to the project requirements
+Following screenshots show my slam run with rtabmap package:
 
-Please note, that since in world.launch the robot is specified to be instantiated at point (2.0, -1.5), I also specified in the amcl.launch file the initial pose to be (2.0, -1.5). This change has to be made, since my worlds origin, (0.0, 0.0), is within the walls.
+![DB Viewer](.videos_and_images/db_viewer.PNG)
+
+![Point Cloud](.videos_and_images/point_cloud.PNG)
+
+![RViz](.videos_and_images/rviz.PNG)
 
 ## Prerequisites
 
 The project consists of the following parts:
-- ROS packages: [map_server](http://wiki.ros.org/map_server), [amcl](http://wiki.ros.org/amcl), 
-[move_base](http://wiki.ros.org/move_base).
-- The PGM Map file used for the localization was created with following tool: 
-[pgm_map_creator](https://github.com/hyfan1116/pgm_map_creator)
+- ROS packages: [rtabmap](http://wiki.ros.org/rtabmap_ros/)
 
 for installing the ros packages use these instructions
 ```
 $ sudo apt-get update && sudo apt-get upgrade -y
-$ sudo apt-get install ros-${ROS_DISTRO}-map-server
-$ sudo apt-get install ros-${ROS_DISTRO}-amcl
-$ sudo apt-get install ros-${ROS_DISTRO}-move-base
+$ sudo apt-get install ros-${ROS_DISTRO}-rtabmap-ros
 ```
 
 ## Build and Launch
@@ -56,7 +55,7 @@ $ roslaunch my_robot world.launch
 ```
 
 5. Open another terminal, and execute the package with the `mapping.launch` file. Here,
-the RTAB-mapping algorithm will be launched.
+the RTAB-mapping algorithm will be launched for doing the SLAM.
 ```
 $ source devel/setup.bash
 $ roslaunch my_robot mapping.launch
@@ -68,5 +67,11 @@ $ source devel/setup.bash
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-7. Navigate the robot around and let it locate itself.
+7. Navigate the robot around and let it perform the SLAM .
 
+8. Open another terminal, and execute the package with the `localization.launch` file. Here,
+the RTAB-mapping algorithm will be launched in localization mode, using the database generated previously.
+```
+$ source devel/setup.bash
+$ roslaunch my_robot localization.launch
+```
