@@ -67,7 +67,7 @@ $ roslaunch my_robot mapping.launch
 6. Open another terminal, and run the `teleop` node.
 ```
 $ source devel/setup.bash
-$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+$ roslaunch my_robot teleop.launch
 ```
 
 7. Navigate the robot around and let it perform the SLAM .
