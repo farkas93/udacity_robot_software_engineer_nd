@@ -3,3 +3,4 @@
 /.vscode
 .catkin_workspace
 /src/pgm_map_creator
+/map_databases
