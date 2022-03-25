@@ -12,7 +12,10 @@ The goal of this is creating a map with the RTAB-SLAM algorithm.
 
 Following screenshots show my slam run with rtabmap package:
 
+My database can be downloaded via WeTransfer with [this link](https://we.tl/t-5AiIn2j8I3)
+
 ![DB Viewer](.videos_and_images/db_viewer.PNG)
+I managed to get 5 loop closures as one can see on the image. I did not map the whole building, since the database is getting drastically big quite fast and navigating the robot via teleop through everything is taking up too much time. + I made the experience that when the robot finally maps the whole building, the database is getting that big, that the db_viewer will crash almost immediately. At least in my VM.
 
 ![Point Cloud](.videos_and_images/point_cloud.PNG)
 
