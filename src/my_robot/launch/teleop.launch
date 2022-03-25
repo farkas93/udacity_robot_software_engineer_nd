@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <launch>
-
-    <!-- Launch other relevant files-->
-    <include file="$(find teleop_twist_keyboard)/teleop_twist_keyboard.py"/>>
-
-  <!-- World File -->
-  <!-- <arg name="world_file" default="$(find my_robot)/worlds/where_am_i.world"/> -->
-
-</launch>code 
+  <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" respawn="false" output="screen">
+  </node>
+</launch>
