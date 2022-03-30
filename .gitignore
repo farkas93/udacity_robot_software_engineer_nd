@@ -2,5 +2,11 @@
 /devel
 /.vscode
 .catkin_workspace
-/src/pgm_map_creator
 /map_databases
+
+#PKGs to ignore
+/src/pgm_map_creator
+/src/slam_gmapping
+/src/turtlebot
+/src/turtlebot_interactions
+/src/turtlebot_simulator
