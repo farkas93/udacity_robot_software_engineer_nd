@@ -14,12 +14,19 @@ The goal of this is creating a home service robot which can drive around autonom
 ## Prerequisites
 
 The project consists of the following parts:
-- ROS packages: [rtabmap](http://wiki.ros.org/rtabmap_ros/)
+- Drivers: [libspnav]
+- ROS packages: [openslam_gmapping] (http://wiki.ros.org/openslam_gmapping),
+                [joy](http://wiki.ros.org/joy),
+                [gmapping] (),
+                [turtlebot_teleop] ()
+                [turtlebot_rviz_launcher] ()
+                [turtlebot_gazebo] ()
+
 
 for installing the ros packages use these instructions
 ```
 $ sudo apt-get update && sudo apt-get upgrade -y
-$ sudo apt-get install ros-${ROS_DISTRO}-rtabmap-ros
+$ ssudo apt install libspnav-dev
 ```
 
 ## Build and Launch
