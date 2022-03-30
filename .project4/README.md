@@ -4,12 +4,22 @@ Nanodegree for robot software engineer on Udacity
 Please note that the current project to submit is always located in the root folder. It should be straight forward to use the repo root as catkin workspace. Previous project material should be found as hidden folder with the scheme ".prjectX/", with X indicating the project number. 
 Small change for test push
 
-# Project 5: Home Service Robot
+# Project 4: Map My World
 
-The goal of this is creating a home service robot which can drive around autonomously in the world.
+The goal of this is creating a map with the RTAB-SLAM algorithm.
 
 ## Demo 
 
+Following screenshots show my slam run with rtabmap package:
+
+My database can be downloaded via WeTransfer with [this link](https://we.tl/t-jw7BJCGlov)
+
+![DB Viewer](.videos_and_images/db_viewer.PNG)
+I managed to get 9 loop closures as one can see on the image.
+
+![Point Cloud](.videos_and_images/point_cloud.PNG)
+
+![RViz](.videos_and_images/rviz.PNG)
 
 ## Prerequisites
 
