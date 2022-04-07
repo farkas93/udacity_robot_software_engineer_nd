@@ -15,6 +15,7 @@ The goal of this is creating a home service robot which can drive around autonom
 
 The project consists of the following parts:
 - Drivers: [libspnav]
+- Additional Software:
 - ROS packages: [openslam_gmapping] (http://wiki.ros.org/openslam_gmapping),
                 [joy](http://wiki.ros.org/joy),
                 [gmapping] (),
@@ -26,7 +27,8 @@ The project consists of the following parts:
 for installing the ros packages use these instructions
 ```
 $ sudo apt-get update && sudo apt-get upgrade -y
-$ ssudo apt install libspnav-dev
+$ sudo apt install libspnav-dev
+$ sudo apt install ros-[version]-gazebo-ros
 ```
 
 ## Build and Launch
