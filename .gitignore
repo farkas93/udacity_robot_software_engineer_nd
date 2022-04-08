@@ -10,3 +10,6 @@
 /src/turtlebot
 /src/turtlebot_interactions
 /src/turtlebot_simulator
+/src/teleop_twist_keyboard
+/src/openslam_gmapping
+/src/joystick_drivers
