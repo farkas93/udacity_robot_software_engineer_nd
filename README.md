@@ -56,6 +56,11 @@ $ source devel/setup.bash
 $ roslaunch my_robot world.launch
 ```
 
+5. To save the map use
+```
+rosrun map_server map_saver -f [path/name_of_map]
+```
+
 5. Open another terminal, and execute the package with the `mapping.launch` file. Here,
 the RTAB-mapping algorithm will be launched for doing the SLAM.
 ```
