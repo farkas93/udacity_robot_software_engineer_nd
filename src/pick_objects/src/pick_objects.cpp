@@ -24,8 +24,11 @@ int main(int argc, char** argv){
   goal.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
-  goal.target_pose.pose.position.x = 1.0;
+  goal.target_pose.pose.position.x = 3.5;
+  goal.target_pose.pose.position.y = 4.0;
   goal.target_pose.pose.orientation.w = 1.0;
+
+  ROS_INFO("Position: (%.2f, %.2f, %.2f)", goal.target_pose.pose.position.x, goal.target_pose.pose.position.y, goal.target_pose.pose.position.z);
 
    // Send the goal position and orientation for the robot to reach
   ROS_INFO("Sending pickup location");
@@ -34,11 +37,27 @@ int main(int argc, char** argv){
   // Wait an infinite time for the results
   ac.waitForResult();
 
+  ros::Duration(5.0).sleep();
+
   // Check if the robot reached its goal
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-    ROS_INFO("Hooray, the base moved 1 meter forward");
+    ROS_INFO("The robot has picked up the target.");
   else
-    ROS_INFO("The base failed to move forward 1 meter for some reason");
+    ROS_INFO("The robot failed to find a valid route to the pickup location.");
+
+
+  // Define a position and orientation for the robot to reach
+  goal.target_pose.pose.position.x = 0.0;
+  goal.target_pose.pose.position.y = 4.0;
+  goal.target_pose.pose.orientation.w = 1.0;
+
+  ROS_INFO("Position: (%.2f, %.2f, %.2f)", goal.target_pose.pose.position.x, goal.target_pose.pose.position.y, goal.target_pose.pose.position.z);
+
+
+  // Send the goal position and orientation for the robot to reach
+  ROS_INFO("Sending load-off location");
+  ac.sendGoal(goal);
+
 
   return 0;
 }
