@@ -6,8 +6,7 @@ Small change for test push
 
 # Project 5: Home Service Robot
 
-The goal of this is creating a home service robot which can drive around autonomously in the world.
-
+The goal of this is creating a home service robot which can drive to a desired goal position, simulate picking up an object and then drop it off at a goal position. This is done autonomously.
 ## Demo 
 
 
@@ -17,11 +16,7 @@ The project consists of the following parts:
 - Drivers: [libspnav]
 - Additional Software:
 - ROS packages: [openslam_gmapping] (http://wiki.ros.org/openslam_gmapping),
-                [joy](http://wiki.ros.org/joy),
-                [gmapping] (),
-                [turtlebot_teleop] ()
-                [turtlebot_rviz_launcher] ()
-                [turtlebot_gazebo] ()
+                [turtlebot]
 
 
 for installing the ros packages use these instructions
@@ -39,46 +34,23 @@ $ cd catkin_ws/src
 $ catkin_init_workspace
 ```
 
-2. Also within `catkin_ws/src`, clone the `teleop` package
-```
-$ git clone https://github.com/ros-teleop/teleop_twist_keyboard
-```
-
-3. Move back to `catkin_ws\` and build
+2. Moving back to `catkin_ws`, run install_pkg.sh script to install everything needed
 ```
 $ cd ..
+$ chmod +x ./src/scripts/install_pkg.sh
+$ ./src/scripts/install_pkg.sh
+```
+
+2. Also within `catkin_ws`, build the project and source everything
+```
 $ catkin_make
+$ source devel/setup.bash
 ```
 
 4. Launch the world and the robot
 ```
-$ source devel/setup.bash
-$ roslaunch my_robot world.launch
+$ ./src/scripts/home_service.sh
 ```
 
-5. To save the map use
-```
-rosrun map_server map_saver -f [path/name_of_map]
-```
+5. Watch the robot perform its task.
 
-5. Open another terminal, and execute the package with the `mapping.launch` file. Here,
-the RTAB-mapping algorithm will be launched for doing the SLAM.
-```
-$ source devel/setup.bash
-$ roslaunch my_robot mapping.launch
-```
-
-6. Open another terminal, and run the `teleop` node.
-```
-$ source devel/setup.bash
-$ roslaunch my_robot teleop.launch
-```
-
-7. Navigate the robot around and let it perform the SLAM .
-
-8. Open another terminal, and execute the package with the `localization.launch` file. Here,
-the RTAB-mapping algorithm will be launched in localization mode, using the database generated previously.
-```
-$ source devel/setup.bash
-$ roslaunch my_robot localization.launch
-```
