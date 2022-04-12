@@ -7,19 +7,26 @@ Small change for test push
 # Project 5: Home Service Robot
 
 The goal of this is creating a home service robot which can drive to a desired goal position, simulate picking up an object and then drop it off at a goal position. This is done autonomously.
-## Demo 
-
 
 ## Prerequisites
 
 The project consists of the following parts:
-- Drivers: [libspnav]
-- Additional Software:
+- Additional Drivers: [libspnav]
 - ROS packages: [openslam_gmapping] (http://wiki.ros.org/openslam_gmapping),
-                [turtlebot]
+                [turtlebot] (http://wiki.ros.org/Robots/TurtleBot)
+                [map_server] (http://wiki.ros.org/map_server)
 
+The openslam_gmapping catkin wrapper package which implements and models the GMapping algorithm. 
+GMapping is an open-source SLAM algorithm. It is a very efficient Rao-Blackwellized particle filer which learns a grid map from LiDar. The particle filter uses local "mini-maps" around the robot to minimize the amount of particles in the room. 
+This package was used to create the  map which is found in the "map" package of this repository. Use the script "test_slam.sh" to perform slam with the GMapping. Once you feel confident about the map you created, save it using the map_server package by executing following command:
+```
+rosrun map_server map_saver -f [path/name_of_map]
+```
+The turtlebot package contains the model and necessary software components of an autonomous mobile robot. It was created at the Willow Garage and is fully based on open-source software and low-cost components.
 
-for installing the ros packages use these instructions
+As far as I understood from the project description, the navigation stack uses the discretized map, described and created earlier, to span up a graph. The path is calculated by an implementation of Dijkstras shortest-path algorithm.
+
+For installing the ros packages use these instructions
 ```
 $ sudo apt-get update && sudo apt-get upgrade -y
 $ sudo apt install libspnav-dev
