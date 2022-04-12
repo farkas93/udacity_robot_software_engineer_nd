@@ -24,4 +24,4 @@ sleep 3
 xterm -e "source devel/setup.bash;
 echo \"Starting Add Markers\";
 source devel/setup.bash;
-rosrun add_markers add_markers" &
+rosrun add_markers prepare_add_markers" &
